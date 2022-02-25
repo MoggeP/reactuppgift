@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.navbar {
+  background-color: rgb(240, 240, 240);
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.nav-1 {
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.nav-2 {
+  font-size: 1.3rem;
+  width: 100%;
+  text-align: right;
+  padding-right: 50px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #47484a;
+}
+
+.navbar a:hover {
+  color: rgb(125, 125, 125);
+}
+
+.checkout_btn {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.checkout_btn a {
+  text-decoration: none;
+  color: #303030;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
