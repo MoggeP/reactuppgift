@@ -6,8 +6,9 @@ import Checkout from './pages/Checkout'
 import About from './pages/About'
 import Header from './components/Header'
 import Products from './pages/Products'
+import Heart from './pages/Heart'
+import Admin from './pages/Admin'
 import Cart from './components/Cart'
-
 
 function App() {
   return (
@@ -20,8 +21,10 @@ function App() {
           <Route path='/Home' element={<Home/>}/>
           <Route path='/Products' element={<Products/>}/>
           <Route path='/About' element={<About/>}/>
+          <Route path='/Admin' element={<Admin/>}/>
+          <Route path='/Heart' element={<Heart/>}/>
           <Route path='/Cart' element={<Cart/>}/>
-          <Route path='/Checkout' element={<Checkout/>}/>
+          <Route path='/Cart/Checkout' element={<Checkout/>}/>
           
         </Routes>
         </BrowserRouter>
