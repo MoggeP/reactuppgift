@@ -7,6 +7,31 @@
   pointer-events: none;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.nav-1 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  text-align: center;
+  background-color: #98a4bd;
+}
+
+.nav-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding-right: 20px;
+
+  background-color: antiquewhite;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
