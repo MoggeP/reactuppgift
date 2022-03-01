@@ -1,17 +1,35 @@
-import React from 'react'
-import { BsBagCheckFill } from 'react-icons/bs'
+import React from 'react';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
 import {Link} from 'react-router-dom'
 
-function Cart() {
-  return (
-    <div><p>Cart</p>
-    
-     <div className='checkout'>
-    <button className='checkout_btn'><Link to="./Checkout"> {<BsBagCheckFill/>} Checkout</Link></button>
-    </div>
-    </div>
-    
-  )
-}
+function Cart({cartItems, handleAddToCart, handleDeleteFromCart, handleDecreseFromCart}) {
 
-export default Cart
+  return (
+    
+    <div className='cart_container'>
+      {cartItems.map(product => (
+         <div key={product.id} className='info'>
+           <div className='img_cart'>
+            <img src={product.url} alt={product.title}/>
+           </div>
+           <p className='title_cart'>{product.title}</p>
+
+           <div buy_btn_container>
+             <button onClick={() => handleAddToCart(product)} className='add_btn'>+</button>
+             <button onClick={() => handleDecreseFromCart(product)} className='decrese_btn'>-</button>
+
+             <button onClick={() => handleDeleteFromCart(product)} className='delete_btn'><Link to="../Cart"> {<RiDeleteBin2Fill/>} Buy now</Link></button>
+             <p>Qty: {product.qty}st</p>
+             <p>Price: {product.price} kr</p>
+
+
+             <button className='cart_checkout_btn'><Link to="../Cart">Checkout</Link></button>
+            </div>
+          </div>
+      ))}
+  
+  </div>
+  )}
+
+
+export default Cart;

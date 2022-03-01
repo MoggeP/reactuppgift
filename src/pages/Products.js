@@ -1,7 +1,14 @@
-import React from 'react'
+import React from 'react';
 import productsData from '../Data';
+import {Link} from 'react-router-dom'
+import { MdLocalGroceryStore} from 'react-icons/md'
+import { MdFavorite } from 'react-icons/md'
+import { IoInformationCircleSharp } from 'react-icons/io5'
+
+
 
 function Products() {
+
   return (
     <div className='products-container'>
       {productsData.products.map((product) => (
@@ -13,7 +20,17 @@ function Products() {
             <p className='productcardPrice'>{product.price} kr</p>
             <p className='productcardDesc'>{product.description}</p>
         </div>
-            <button className='addtoCart'>Button</button>
+        <div className='btns'>
+          <button className='heart_btn'>
+               <Link to="../Heart"> {<MdFavorite/>}</Link>
+               </button>
+             <button className='details_btn'>
+               <Link to="../Product"> {<IoInformationCircleSharp/>}</Link>
+               </button>
+             <button className='checkout_btn'>
+               <Link to="../Cart"> {<MdLocalGroceryStore/>}</Link>
+               </button>
+        </div>
       </div>
       )
       )
@@ -23,4 +40,4 @@ function Products() {
   )
 }
 
-export default Products
+export default Products;
