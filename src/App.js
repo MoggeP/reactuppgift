@@ -10,13 +10,12 @@ import Heart from './pages/Heart'
 import Admin from './pages/Admin'
 import Cart from './components/Cart'
 
+
 function App() {
   return (
     <div className="App">
-      
-        <BrowserRouter>
+      <BrowserRouter>
         <Header />
-      
         <Routes>
           <Route path='/Home' element={<Home/>}/>
           <Route path='/Products' element={<Products/>}/>
@@ -25,9 +24,9 @@ function App() {
           <Route path='/Heart' element={<Heart/>}/>
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='/Cart/Checkout' element={<Checkout/>}/>
-          
         </Routes>
-        </BrowserRouter>
+      </BrowserRouter>
+      
     </div>
   );
 }
