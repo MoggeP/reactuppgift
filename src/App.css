@@ -16,27 +16,31 @@ html {
 
 .navbar {
   background-color: rgb(240, 240, 240);
-  padding: 20px 0px 20px 0px;
+  padding: 15px 0px 15px 0px;
   display: flex;
   flex-direction: row;
   width: 100%;
   text-align: center;
-  justify-content: space-around;
 }
 
 .nav-1 {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  padding-left: 30px;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.05rem;
+  margin-left: 20px;
+  justify-content: center;
 }
 
 .nav-2 {
+  display: flex;
+  flex-direction: row;
   font-size: 1.3rem;
   width: 100%;
-  text-align: right;
-  padding-right: 50px;
+  justify-content: right;
+  margin-right: 50px;
 }
 
 .navbar a {
@@ -123,6 +127,27 @@ html {
 
 .buy_btn a:hover {
   color: rgb(97, 97, 97);
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 50px auto;
+  justify-content: space-between;
+  border: 1px solid #282c34;
+  padding: 20px;
+}
+
+.cart-bag {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-summary {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

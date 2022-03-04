@@ -1,35 +1,25 @@
 import React from 'react';
-import { RiDeleteBin2Fill } from 'react-icons/ri';
-import {Link} from 'react-router-dom'
 
-function Cart({cartItems, handleAddToCart, handleDeleteFromCart, handleDecreseFromCart}) {
+
+export default function Cart ({cartItems, handleDecreseItems, handleAddItems, handleDeleteItems}) {
 
   return (
+    <Cart className='cart'>
     
-    <div className='cart_container'>
-      {cartItems.map(product => (
-         <div key={product.id} className='info'>
-           <div className='img_cart'>
-            <img src={product.url} alt={product.title}/>
-           </div>
-           <p className='title_cart'>{product.title}</p>
-
-           <div buy_btn_container>
-             <button onClick={() => handleAddToCart(product)} className='add_btn'>+</button>
-             <button onClick={() => handleDecreseFromCart(product)} className='decrese_btn'>-</button>
-
-             <button onClick={() => handleDeleteFromCart(product)} className='delete_btn'><Link to="../Cart"> {<RiDeleteBin2Fill/>} Buy now</Link></button>
-             <p>Qty: {product.qty}st</p>
-             <p>Price: {product.price} kr</p>
-
-
-             <button className='cart_checkout_btn'><Link to="../Cart">Checkout</Link></button>
+      
+      
+      <div className='cart_bag'>{cartItems.length === 0 && <div>Cart is empty</div>}</div>
+        
+        {cartItems.map(product => (
+          <div key={product.id} className='cartDetails'> 
+            <div>{product.title}</div>
+            <div className='cart_btns'>
+              <button onClick={()=> handleAddItems(product)}>+</button>
+              <button onClick={()=> handleDecreseItems(product)}>-</button>
+            <p className='cart_summary'>{product.qty} x {product.price}</p>
             </div>
+            <button onClick={()=> handleDeleteItems(product)}>x</button>
           </div>
-      ))}
-  
-  </div>
+          ))};
+        </Cart>
   )}
-
-
-export default Cart;

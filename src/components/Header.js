@@ -4,7 +4,12 @@ import { FaShoppingBag } from 'react-icons/fa'
 import { MdFace } from 'react-icons/md'
 import { MdFavorite } from 'react-icons/md'
 
-function Header() {
+
+export default function Header({cartItem}) {
+  
+  const cartQuantity = cartItem.map(product => product.qty).reduce((product) => product + 0);
+ 
+
   return (
     <nav className='navbar'>
       <div className='nav-1'>
@@ -17,11 +22,9 @@ function Header() {
 
        <Link to="./Heart" style={{padding: '10px'}}>{<MdFavorite/>}</Link>
 
-       <Link to="./Cart" style={{padding: '10px'}}>{<FaShoppingBag/>}</Link>
-       
-     </div>
+       <Link to="./Cart" style={{padding: '10px'}}>{<FaShoppingBag/>}
+       <span className='cartNum'>{cartQuantity}</span></Link>
+      </div>
     </nav>
   )
 }
-
-export default Header;

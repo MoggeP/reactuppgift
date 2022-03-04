@@ -7,12 +7,12 @@ import { IoInformationCircleSharp } from 'react-icons/io5'
 
 
 
-function Products() {
+export default function Products({ handleAddItems, handleProductCardDetails }) {
 
   return (
-    <div className='products-container'>
-      {productsData.products.map((product) => (
-    <div className='productCard'>
+    <Products className='products-container'>
+      {productsData.product.map((product) => (
+        <div className='productCard'>
         <img className='productcardImg' src={product.url} alt={product.title}/>
 
         <div className='productcardDetails'>
@@ -21,23 +21,34 @@ function Products() {
             <p className='productcardDesc'>{product.description}</p>
         </div>
         <div className='btns'>
+          
           <button className='heart_btn'>
                <Link to="../Heart"> {<MdFavorite/>}</Link>
                </button>
-             <button className='details_btn'>
-               <Link to="../Product"> {<IoInformationCircleSharp/>}</Link>
-               </button>
-             <button className='checkout_btn'>
-               <Link to="../Cart"> {<MdLocalGroceryStore/>}</Link>
-               </button>
-        </div>
-      </div>
-      )
-      )
-    }
-    </div>
-    
-  )
-}
 
-export default Products;
+             <button className='details_btn'>
+               <Link to onClick={() => handleProductCardDetails(product.id)} className="details_btn">{<IoInformationCircleSharp/>}</Link>
+               </button>
+
+               
+                 <Link to onClick={() => handleAddItems(product)} className="details_btn">{<MdLocalGroceryStore/>}</Link>
+
+                 
+               
+
+                {/* <button onClick={()=> product(product.id)} className='checkout_btn'>{<MdLocalGroceryStore/>}</button> */}
+              </div>
+              </div>
+                
+              ))}
+
+{/* <button className='checkout_btn'>
+  <Link to="../Cart"> {<MdLocalGroceryStore/>}</Link>
+ </button> */}
+{/* </div>
+<products key={product.id} product={product} addItems={handleAddItems}></products>
+</div> */}
+              </Products>
+      )}
+
+        
