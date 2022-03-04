@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom';
 import { FaShoppingBag } from 'react-icons/fa'
 import { MdFace } from 'react-icons/md'
 import { MdFavorite } from 'react-icons/md'
+import Cart from './Cart';
 
-function Header() {
+function Header({cartQuantity}) {
   return (
     <nav className='navbar'>
       <div className='nav-1'>
@@ -17,8 +18,7 @@ function Header() {
 
        <Link to="./Heart" style={{padding: '10px'}}>{<MdFavorite/>}</Link>
 
-       <Link to="./Cart" style={{padding: '10px'}}>{<FaShoppingBag/>}</Link>
-       
+       <Link to="./Cart" style={{padding: '10px'}}>{<FaShoppingBag/>}<span className='cartNum'> {cartQuantity}</span></Link>
      </div>
     </nav>
   )

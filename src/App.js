@@ -1,33 +1,69 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home'
-import Checkout from './pages/Checkout'
-import About from './pages/About'
 import Header from './components/Header'
 import Products from './pages/Products'
-import Heart from './pages/Heart'
-import Admin from './pages/Admin'
 import Cart from './components/Cart'
 
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/Home' element={<Home/>}/>
-          <Route path='/Products' element={<Products/>}/>
-          <Route path='/About' element={<About/>}/>
-          <Route path='/Admin' element={<Admin/>}/>
-          <Route path='/Heart' element={<Heart/>}/>
-          <Route path='/Cart' element={<Cart/>}/>
-          <Route path='/Cart/Checkout' element={<Checkout/>}/>
-        </Routes>
-      </BrowserRouter>
+  const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState(undefined);
+  const [cartItems, setCartItems] = useState([]);
 
-    </div>
+  const getProducts = async () => {
+    try {
+      const response = await fetch('https://codexplained.se/electronics.php');
+      const data = await response.json();
+
+      setProducts(data);
+    } catch (error) {
+
+    }
+  };
+
+  const handleProductDetails = (id) => {
+    const oneProduct = products.find(x => x.id === id)
+    setProduct(oneProduct);
+  }
+  const handleAddToCart = (product) => {
+    const productExist = cartItems.find(x => x.id === product.id);
+    if (productExist) {
+      setCartItems(cartItems.map(x => x.id === product.id ? { ...productExist, qty: productExist.qty + 1 } : x));
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  }
+  const handleDecreaseQty = (product) => {
+    const productExist = cartItems.find(x => x.id === product.id);
+    if (productExist.qty === 1) {
+      setCartItems(cartItems.filter(x => x.id !== product.id));
+    } else {
+      setCartItems(cartItems.map(x => x.id === product.id ? { ...productExist, qty: productExist.qty - 1 } : x));
+    }
+  }
+  const handleRemoveItem = (product) => {
+    const newCartItems = cartItems.filter((x => x.id !== product.id))
+    setCartItems(newCartItems);
+  }
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Header cartItems={cartItems} />
+    <Routes>
+        <Route path="/products" element={<Products handleProductDetails={handleProductDetails} products={products} />}>
+          </Route>
+
+          <Route path="/products/:id" element={<Products handleAddToCart={handleAddToCart} product={product} />}></Route>
+
+          <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleRemoveItem={handleRemoveItem} />}></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
