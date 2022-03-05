@@ -17,6 +17,8 @@ function Cart({cartItems, handleAddToCart, handleDeleteFromCart, handleDecreseFr
            <div buy_btn_container>
              <button onClick={() => handleAddToCart(addedProduct)} className='add_btn'>+</button>
              <button onClick={() => handleDecreseFromCart(addedProduct)} className='decrese_btn'>-</button>
+             {/* <input type="number" min="1" max="10" placeholder="quantity"></input> */}
+
 
              <button onClick={() => handleDeleteFromCart(addedProduct)} className='delete_btn'><Link to="../Cart"> {<RiDeleteBin2Fill/>} Buy now</Link></button>
              <p>Qty: {addedProduct.qty}st</p>

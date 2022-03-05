@@ -7,7 +7,7 @@ import { IoInformationCircleSharp } from 'react-icons/io5'
 
 
 
-function Products(handleAddToCart, cartQuantity) {
+function Products({handleAddToCart}) {
   
 
   const handleClick = (product) => {
@@ -17,14 +17,16 @@ function Products(handleAddToCart, cartQuantity) {
 
 
 
+
   return (
     <div className='products-container'>
       {productsData.products.map((product) => (
-    <div className='productCard'>
+    <div key={product.id} className='productCard'>
         <img className='productcardImg' src={product.url} alt={product.title}/>
 
         <div className='productcardDetails'>
-            <h3 className='productcardInfo'>{product.title}</h3>
+          <Link to={product.url}> 
+            <h3 className='productcardInfo'>{product.title}</h3></Link>
             <p className='productcardPrice'>{product.price} kr</p>
             <p className='productcardDesc'>{product.description}</p>
         </div>
@@ -38,6 +40,7 @@ function Products(handleAddToCart, cartQuantity) {
              <button className='checkout_btn'>
                <Link to onClick={() => {handleClick(product.id)}}>{<MdLocalGroceryStore/>}</Link>
                </button>
+               
         </div>
       </div>
       )

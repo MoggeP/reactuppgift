@@ -8,6 +8,7 @@ import About from './pages/About'
 import Heart from './pages/Heart'
 import { Home } from '@material-ui/icons';
 
+
 //import Product from './pages/Product'
 //import Data from './Data'
 //import Checkout from './pages/Checkout'
@@ -61,24 +62,25 @@ function App() {
   useEffect(() => {
     getProducts();
   }, []);
+
+
   return (
     <BrowserRouter>
       <div className="App">
         <Header cartItems={cartItems} />
+        
     <Routes>
 
-        <Route path="/Home" element={<Home/>}>
-          </Route>
-       <Route path="/About" element={<About/>}>
-          </Route>
-        <Route path="/products" element={<Products handleProductDetails={handleProductDetails} products={products} />}>
-          </Route>
+        <Route path="/Home" element={<Home/>}></Route>
+       <Route path="/About" element={<About/>}></Route>
+
+        <Route path="/products" element={<Products handleProductDetails={handleProductDetails} products={products} />}></Route>
 
           <Route path="/products/:id" element={<Products handleAddToCart={handleAddToCart} product={product} />}></Route>
-          <Route path="/Heart" element={<Heart/>}>
-          </Route>
 
           <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleDeleteFromCart={handleDeleteFromCart} />}></Route>
+          
+          <Route path="/Heart" element={<Heart/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
