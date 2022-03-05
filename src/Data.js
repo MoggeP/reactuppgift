@@ -2,7 +2,7 @@ const productsData = {
     products: [
     {
         id: 234967,
-        title: "Digital camera",
+        title: "Nikon digital camera",
         description: "Quo neque error repudiandae fuga? Ipsa laudantium molestias eos nsapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisciametlaborum.",
         price:15999,
         storage:13,
@@ -10,7 +10,7 @@ const productsData = {
     },
     {
         id: 678453,
-        title: "Iphone X",
+        title: "iPhone X",
         description: "Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at suntexcepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci ametlaborum.",
         price: 8999,
         storage: 55,
@@ -27,7 +27,7 @@ const productsData = {
 
     {
         id:1467325,
-        title:"Xbox360",
+        title:"Xbox 360",
         description: "Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at suntexcepturi expedita sint? Sed quibusdamn recusandae alias error harum maxime adipisci ametlaborum.",
         price: 8900,
         storage: 32,
@@ -36,7 +36,7 @@ const productsData = {
 
     {
         id:5456463,
-        title: "Headphones",
+        title: "Marshall's Headphones",
         description: "Quoneque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint?Sed quibusdam recusandae alias error harum maxime adipisci ametlaborum.",
         price: 3500,
         storage: 24,

@@ -15,31 +15,27 @@ function Products({handleAddToCart}) {
   console.log(product.id);
 }
 
-
-
-
   return (
     <div className='products-container'>
       {productsData.products.map((product) => (
     <div key={product.id} className='productCard'>
         <img className='productcardImg' src={product.url} alt={product.title}/>
+          
 
         <div className='productcardDetails'>
-          <Link to={product.url}> 
+          <Link to={product.id}> 
             <h3 className='productcardInfo'>{product.title}</h3></Link>
             <p className='productcardPrice'>{product.price} kr</p>
+        <Link to="../Heart" className='like_btn' style={{color:'#a52a2a'}}>{<MdFavorite/>}</Link>
             <p className='productcardDesc'>{product.description}</p>
         </div>
         <div className='btns'>
-          <button className='heart_btn'>
-               <Link to="../Heart"> {<MdFavorite/>}</Link>
-               </button>
              <button className='details_btn'>
                <Link to="../Product"> {<IoInformationCircleSharp/>}</Link>
                </button>
+               <input type="number" min="0" max="10" className='inputProductQty'></input>
              <button className='checkout_btn'>
-               <Link to onClick={() => {handleClick(product.id)}}>{<MdLocalGroceryStore/>}</Link>
-               </button>
+               <Link to onClick={() => {handleClick(product)}}>{<MdLocalGroceryStore/>}</Link></button>
                
         </div>
       </div>
