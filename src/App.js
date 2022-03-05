@@ -4,6 +4,17 @@ import './App.css';
 import Header from './components/Header'
 import Products from './pages/Products'
 import Cart from './components/Cart'
+import About from './pages/About'
+import Heart from './pages/Heart'
+import { Home } from '@material-ui/icons';
+
+//import Product from './pages/Product'
+//import Data from './Data'
+//import Checkout from './pages/Checkout'
+// import Admin from './pages/Admin'
+
+
+
 
 
 function App() {
@@ -42,7 +53,7 @@ function App() {
       setCartItems(cartItems.map(x => x.id === product.id ? { ...productExist, qty: productExist.qty - 1 } : x));
     }
   }
-  const handleRemoveItem = (product) => {
+  const handleDeleteFromCart = (product) => {
     const newCartItems = cartItems.filter((x => x.id !== product.id))
     setCartItems(newCartItems);
   }
@@ -55,12 +66,19 @@ function App() {
       <div className="App">
         <Header cartItems={cartItems} />
     <Routes>
+
+        <Route path="/Home" element={<Home/>}>
+          </Route>
+       <Route path="/About" element={<About/>}>
+          </Route>
         <Route path="/products" element={<Products handleProductDetails={handleProductDetails} products={products} />}>
           </Route>
 
           <Route path="/products/:id" element={<Products handleAddToCart={handleAddToCart} product={product} />}></Route>
+          <Route path="/Heart" element={<Heart/>}>
+          </Route>
 
-          <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleRemoveItem={handleRemoveItem} />}></Route>
+          <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleDeleteFromCart={handleDeleteFromCart} />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -7,7 +7,15 @@ import { IoInformationCircleSharp } from 'react-icons/io5'
 
 
 
-function Products() {
+function Products(handleAddToCart, cartQuantity) {
+  
+
+  const handleClick = (product) => {
+  handleAddToCart(product.id)
+  console.log(product.id);
+}
+
+
 
   return (
     <div className='products-container'>
@@ -28,7 +36,7 @@ function Products() {
                <Link to="../Product"> {<IoInformationCircleSharp/>}</Link>
                </button>
              <button className='checkout_btn'>
-               <Link to="../Cart"> {<MdLocalGroceryStore/>}</Link>
+               <Link to onClick={() => {handleClick(product.id)}}>{<MdLocalGroceryStore/>}</Link>
                </button>
         </div>
       </div>
