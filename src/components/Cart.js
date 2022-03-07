@@ -17,9 +17,8 @@ function Cart() {
            <p>product.title</p>
 
            <div className='buyBtn_container'>
-             <input type="number" min="1" max="10" placeholder="quantity"></input>
-
-
+             <input type="number" min="0" max="10" placeholder='0'></input>
+             
              <button>Buy now</button>
              <p>Qty: st</p>
              <p>Price: kr</p>
