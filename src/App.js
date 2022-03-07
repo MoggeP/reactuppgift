@@ -77,6 +77,7 @@ function App() {
           <Route path="/" element={<Product />} />
           <Route path="/product" element={<Product />} />
           </Routes>
+          <Footer />
       </div>
     </BrowserRouter>
   );
