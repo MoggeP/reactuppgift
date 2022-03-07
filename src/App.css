@@ -26,21 +26,32 @@ html {
 .nav-1 {
   display: flex;
   flex-direction: row;
+  font-size: 1.3rem;
   width: 100%;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.05rem;
-  margin-left: 20px;
-  justify-content: center;
+  text-align: left;
+  padding-left: 50px;
+  justify-content: start;
 }
 
 .nav-2 {
   display: flex;
   flex-direction: row;
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  justify-content: center;
+}
+
+.nav-3 {
+  display: flex;
+  flex-direction: row;
   font-size: 1.3rem;
   width: 100%;
-  justify-content: right;
-  margin-right: 50px;
+  justify-content: end;
+  padding-right: 50px;
 }
 
 .navbar a {
@@ -50,6 +61,10 @@ html {
 
 .navbar a:hover {
   color: rgb(125, 125, 125);
+}
+
+.cartNum {
+  font-size: medium;
 }
 
 .btns {
@@ -64,7 +79,7 @@ html {
   font-weight: 550;
   padding: 10px;
   border: none;
-  background-color: #f9f9f9;
+  background-color: transparent;
 }
 
 .checkout_btn a,
@@ -73,10 +88,6 @@ html {
 .buy_btn a {
   text-decoration: none;
   color: #303030;
-}
-
-.heart_btn a:hover {
-  color: rgb(120, 42, 42);
 }
 
 .details_btn a:hover {
@@ -108,12 +119,36 @@ html {
   box-shadow: 0px 0px 5px rgb(181, 181, 181);
 }
 
+.productCard a {
+  text-decoration: none;
+  color: #303030;
+}
+
+.productCard a:hover {
+  text-decoration: none;
+  color: #828282;
+}
+
+.like_btn {
+  font-size: 22px;
+  width: fit-content;
+}
+
 .productcardDesc {
   font-size: 11px;
 }
 
 .productcardPrice {
   font-weight: 500;
+}
+
+.inputProductQty {
+  padding: 2px;
+  
+  font-size: 1.1rem;
+  border: solid 0.05rem;
+  border-radius: 3px;
+  background-color: #f4f4f4;
 }
 
 .buy_btn {
