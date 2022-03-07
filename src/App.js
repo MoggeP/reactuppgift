@@ -4,15 +4,10 @@ import './App.css';
 import Header from './components/Header'
 import Products from './pages/Products'
 import Cart from './components/Cart'
-import About from './pages/About'
-import Heart from './pages/Heart'
-import { Home } from '@material-ui/icons';
+import Product from './pages/Product';
+import Footer from './components/Footer';
 
-
-//import Product from './pages/Product'
-//import Data from './Data'
-//import Checkout from './pages/Checkout'
-// import Admin from './pages/Admin'
+import About from './pages/About';
 
 
 
@@ -71,17 +66,19 @@ function App() {
         
     <Routes>
 
-        <Route path="/Home" element={<Home/>}></Route>
+        
        <Route path="/About" element={<About/>}></Route>
 
         <Route path="/products" element={<Products handleProductDetails={handleProductDetails} products={products} />}></Route>
 
           <Route path="/products/:id" element={<Products handleAddToCart={handleAddToCart} product={product} />}></Route>
 
-          <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleDeleteFromCart={handleDeleteFromCart} />}></Route>
+          <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleRemoveItem={handleDeleteFromCart} />}></Route>
           
-          <Route path="/Heart" element={<Heart/>}></Route>
-        </Routes>
+          <Route path="/" element={<Product />} />
+          <Route path="/product" element={<Product />} />
+          </Routes>
+          <Footer />
       </div>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 const productsData = {
-    productsData: [
+    product: [
     {
         id: 234967,
         title: "Nikon digital camera",
