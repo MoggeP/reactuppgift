@@ -33,7 +33,7 @@ function Products({handleAddToCart}) {
                </button>
                <input type="number" min="0" max="10" className='inputProductQty'></input>
              <button className='checkout_btn'>
-               <Link to onClick={() => {handleClick(product)}}>{<MdLocalGroceryStore/>}</Link></button>
+               <Link to onClick={() => {handleClick(productsData)}}>{<MdLocalGroceryStore/>}</Link></button>
                
         </div>
       </div>
