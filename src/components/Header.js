@@ -3,12 +3,14 @@ import {Link} from 'react-router-dom';
 import { FaShoppingBag } from 'react-icons/fa'
 import { MdFace } from 'react-icons/md'
 import { MdFavorite } from 'react-icons/md'
-import Home from './pages/Home';
+import { Home } from '@material-ui/icons';
 
 
-    function Header ({cartQuantity}) {
+function Header({cartItems}) {
+
+  const cartQuantity = cartItems.map(cartItems => cartItems.qty).reduce((acc, cartItems) => cartItems + acc, 0);
   return (
-    <nav className='navbar'>
+    <div className='navbar'>
       <div className='nav-1'>
         <Link to="./Home" style={{padding: '10px'}}>{<Home/>}</Link>
      </div>
@@ -25,8 +27,9 @@ import Home from './pages/Home';
 
        <Link to="./Cart" style={{padding: '10px'}}>{<FaShoppingBag/>}<span className='cartNum'> {cartQuantity}</span></Link>
        </div>
-    </nav>
+    </div>
+
   )
 }
 
-export default Header;
+export default Header

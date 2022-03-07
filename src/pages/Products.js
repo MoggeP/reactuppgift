@@ -7,12 +7,16 @@ import { IoInformationCircleSharp } from 'react-icons/io5'
 
 
 
-export default function Products({ handleAddItems, handleProductCardDetails }) {
+function Products({handleAddToCart}) {
+  
+  const handleClick = (product) => {
+    handleAddToCart(product.id)
+}
 
   return (
-    <Products className='products-container'>
-      {productsData.product.map((product) => (
-        <div className='productCard'>
+    <div className='products-container'>
+      {productsData.productsData.map((product) => (
+    <div key={product.id} className='productCard'>
         <img className='productcardImg' src={product.url} alt={product.title}/>
           
 
@@ -24,34 +28,21 @@ export default function Products({ handleAddItems, handleProductCardDetails }) {
             <p className='productcardDesc'>{product.description}</p>
         </div>
         <div className='btns'>
-          
-          <button className='heart_btn'>
-               <Link to="../Heart"> {<MdFavorite/>}</Link>
-               </button>
-
              <button className='details_btn'>
-               <Link to onClick={() => handleProductCardDetails(product.id)} className="details_btn">{<IoInformationCircleSharp/>}</Link>
+               <Link to="../Product"> {<IoInformationCircleSharp/>}</Link>
                </button>
-
+               <input type="number" min="0" max="10" className='inputProductQty'></input>
+             <button className='checkout_btn'>
+               <Link to onClick={() => {handleClick(productsData)}}>{<MdLocalGroceryStore/>}</Link></button>
                
-                 <Link to onClick={() => handleAddItems(product)} className="details_btn">{<MdLocalGroceryStore/>}</Link>
+        </div>
+      </div>
+      )
+      )
+    }
+    </div>
+    
+  )
+}
 
-                 
-               
-
-                {/* <button onClick={()=> product(product.id)} className='checkout_btn'>{<MdLocalGroceryStore/>}</button> */}
-              </div>
-              </div>
-                
-              ))}
-
-{/* <button className='checkout_btn'>
-  <Link to="../Cart"> {<MdLocalGroceryStore/>}</Link>
- </button> */}
-{/* </div>
-<products key={product.id} product={product} addItems={handleAddItems}></products>
-</div> */}
-              </Products>
-      )}
-
-        
+export default Products;

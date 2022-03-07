@@ -1,25 +1,37 @@
-import React from 'react';
+import React from 'react'
 
 
-export default function Cart ({cartItems, handleDecreseItems, handleAddItems, handleDeleteItems}) {
+
+function Cart(handleDeleteItems, product) {
 
   return (
-    <Cart className='cart'>
+    <div className='cart'>
     
-      
-      
-      <div className='cart_bag'>{cartItems.length === 0 && <div>Cart is empty</div>}</div>
-        
-        {cartItems.map(product => (
-          <div key={product.id} className='cartDetails'> 
-            <div>{product.title}</div>
-            <div className='cart_btns'>
-              <button onClick={()=> handleAddItems(product)}>+</button>
-              <button onClick={()=> handleDecreseItems(product)}>-</button>
-            <p className='cart_summary'>{product.qty} x {product.price}</p>
+    
+    <div className='cart_container'>
+      <h2>Shopping bag</h2>
+      {}
+         <div className='info'>
+           <div className='img_cart'>
+            <div>image</div>
+           </div>
+           <p>product.title</p>
+
+           <div className='buyBtn_container'>
+             <input type="number" min="0" max="10" placeholder='0'></input>
+             
+             <button>Buy now</button>
+             <p>Qty: st</p>
+             <p>Price: kr</p>
+
+
+             <button>Checkout</button>
             </div>
             <button onClick={()=> handleDeleteItems(product)}>x</button>
           </div>
-          ))};
-        </Cart>
+        </div>
+    </div>
   )}
+
+
+export default Cart;
