@@ -8,7 +8,7 @@ import { Home } from '@material-ui/icons';
 
 function Header({cartItems}) {
 
-  const cartQuantity = cartItems.map(product => product.qty).reduce((acc, product) => product + acc, 0);
+  const setCount = cartItems.map(product => product.qty).reduce((acc, product) => product + acc, 0);
 
   return (
     <nav className='navbar'>
@@ -26,7 +26,7 @@ function Header({cartItems}) {
 
        <Link to="./Heart" style={{padding: '10px'}}>{<MdFavorite/>}</Link>
 
-       <Link to="./Cart" style={{padding: '10px'}}>{<FaShoppingBag/>}<span className='cartNum'> {cartQuantity}</span></Link>
+       <Link to="./Cart" style={{padding: '10px'}}>{<FaShoppingBag/>}<span className='cartNum'> {setCount}</span></Link>
        </div>
     </nav>
   )

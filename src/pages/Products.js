@@ -9,15 +9,13 @@ import { IoInformationCircleSharp } from 'react-icons/io5'
 
 function Products({handleAddToCart}) {
   
-
   const handleClick = (product) => {
-  handleAddToCart(product.id)
-  console.log(product.id);
+    handleAddToCart(product.id)
 }
 
   return (
     <div className='products-container'>
-      {productsData.products.map((product) => (
+      {productsData.productsData.map((product) => (
     <div key={product.id} className='productCard'>
         <img className='productcardImg' src={product.url} alt={product.title}/>
           
