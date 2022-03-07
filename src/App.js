@@ -6,7 +6,7 @@ import Products from './pages/Products'
 import Cart from './components/Cart'
 import Product from './pages/Product';
 import Footer from './components/Footer';
-import Checkout from './pages/Checkout';
+
 //import Product from './pages/Product'
 //import Data from './Data'
 //import Checkout from './pages/Checkout'
@@ -75,7 +75,7 @@ function App() {
           <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleRemoveItem={handleRemoveItem} />}></Route>
           
           <Route path="/" element={<Product />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product/:id" element={<Product />} />
           </Routes>
           <Footer />
       </div>

@@ -1,6 +1,7 @@
 import '../style/product.css'
 import React, { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
+import product from '../Data';
 
 function Product({ addProduct }) {
   const [product, setproduct] = useState([]);
@@ -30,7 +31,7 @@ function Product({ addProduct }) {
 
   return (
     <section key={product.id} className='product-add'>
-    <img className='img-add' alt='Bild' src={product.url}></img>
+    <img className='img-add' alt='Image' src={product.url}></img>
     <h1 className='title-add'>{product.title}</h1>
     <p className='desc-add'>{product.description}</p>
     <h2 className='price-add'>Price:{product.price}</h2>
