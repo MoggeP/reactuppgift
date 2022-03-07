@@ -30,7 +30,7 @@ html {
   width: 100%;
   text-align: left;
   padding-left: 50px;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .nav-2 {
@@ -50,7 +50,7 @@ html {
   flex-direction: row;
   font-size: 1.3rem;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
   padding-right: 50px;
 }
 

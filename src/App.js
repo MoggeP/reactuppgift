@@ -69,8 +69,8 @@ function App() {
         
     <Routes>
 
-        <Route path="/Home" element={<Home/>}></Route>
-       <Route path="/About" element={<About/>}></Route>
+       
+     
 
         <Route path="/products" element={<Products handleProductDetails={handleProductDetails} products={products} />}></Route>
 
@@ -78,8 +78,9 @@ function App() {
 
           <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleDeleteFromCart={handleDeleteFromCart} />}></Route>
           
-          <Route path="/Heart" element={<Heart/>}></Route>
+        
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

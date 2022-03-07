@@ -2,10 +2,10 @@ import React from 'react'
 
 
 
-function Cart() {
+function Cart(handleDeleteItems, product) {
 
   return (
-    <Cart className='cart'>
+    <div className='cart'>
     
     
     <div className='cart_container'>
@@ -30,42 +30,8 @@ function Cart() {
             <button onClick={()=> handleDeleteItems(product)}>x</button>
           </div>
         </div>
+    </div>
   )}
 
 
 export default Cart;
-
-// function Cart({ products, setProducts, cartItems, handleAddToCart }) {
-
-//   const handleDecreseFromCart= (id) => {
-//     let inCart = products.filter(item => item.id !== id)
-//     setProducts(inCart)
-//   }
-
-   
-//   const handleDeleteFromCart = () => {
-//     deleteAll()
-//    }
-
-//     return (
-//         <div>
-//             {cartItems.map(products => (
-//                 <div key={products.id} className='cart-info'>
-//                     <div>
-//                         <img src={products.image} alt={products.name} />
-//                     </div>
-//                     <p>{products.name}</p>
-//                     <div>
-//                         <button onClick={() => handleDecreseFromCart(products)} className='btn-decrease'>-</button>
-//                         <p>{products.qty}</p>
-//                         <button onClick={() => handleAddToCart(products)} className='btn-increse'>+</button>
-//                     </div>
-//                     <p>{products.price} kr</p>
-//                     <button onClick={() => handleDeleteFromCart(products)} className='btn-remove'>x</button>
-//                 </div>
-//             ))}
-
-//         </div>
-//     )
-// }
-// export default Cart;
