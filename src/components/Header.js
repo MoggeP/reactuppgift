@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import '../style/header.css'
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingBag } from 'react-icons/fa'
+import { MdFace } from 'react-icons/md'
+import { MdFavorite } from 'react-icons/md'
+import { Home } from '@material-ui/icons';
 import Cart from './Cart';
 
 
@@ -10,18 +13,18 @@ function Header({cartItems, setCartItems, countCartItems, summary, deleteCart}) 
 
   return (
     <div>
-        <div className="container">
-          <div className="header-bar">
-            <Link to="/" className='logo'><h1>G-Seven Tech</h1></Link>
+        <div className="navbar">
+          <div className="main-navbar">
+            <Link to="/" className='navbar_link'><p>Products</p></Link>
             </div>
 
-            <div className="slider-menu"> 
+            <div className="cart-sidebar"> 
               {countCartItems ? (
                 <button className='countBtn'>{countCartItems}</button>
               ) : 
                 ''
               }
-              <button onClick={() => {setOpen(true)}}>< FaShoppingCart/></button>
+              <button onClick={() => {setOpen(true)}}>< FaShoppingBag/></button>
               </div>
             
             <Cart

@@ -26,6 +26,7 @@ function App() {
 
 
     if (summary === 0) {
+      
       setSummary(newCartItem.price)
   } else {
       setSummary(summary + newCartItem.price)
