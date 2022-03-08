@@ -1,4 +1,4 @@
-.checkoutBody{
+.checkoutBody {
     margin-top: 9rem;
     border: 1px black;
     height: 20rem;
@@ -10,7 +10,7 @@
     flex-direction: column;
 }
 
-#chekout-form{
+#chekout-form {
     padding: 1rem;
     width: auto;
 }

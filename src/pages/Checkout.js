@@ -3,21 +3,16 @@ import '../style/checkout.css'
 
 function Checkout({products}) {
 
-  console.log(products)
-
   return (
    
       <div className='wrapper'>
         <div className='products'>
-        {products.length < 1 ? 
-          <div>
-        <h3>Nothing here</h3> 
-        </div>
-        
-        : 
-        <div className='product'>
+        {products.length < 1
+          ? <div> <h3>Nothing here</h3> </div>
+          :
+         <div className='product'>
 
-          <h3>You havent placed any products</h3>
+          <h3>Your shit</h3>
           {products.map(i => (
             <table>
               <tr className='chekout-tr'>
@@ -74,10 +69,7 @@ function Checkout({products}) {
         <input type="submit" value="Complete" className='checkout-btn'></input>
       </div>
         </div>
-      </div>
-    
-
-    
+        </div>    
   )
 }
 
