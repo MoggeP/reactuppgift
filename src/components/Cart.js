@@ -56,7 +56,7 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
           <h2>Shopping Bag</h2>
           <div className='closeSidebar' onClick={() => setOpen(!open)}><TiDelete /></div>
         </div>
-        <div>{cartItems.length === 0 && <p className='emptyShoppingBag'>Your bag is currently empty.</p>}</div>
+        <div>{cartItems.length === 0 && <p className='emptyShoppingBag'>Your bag is currently empty</p>}</div>
         <div className="cartProducts">
           {
             cartItems.map((item) =>
@@ -66,11 +66,11 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
         </div>
 
         <div className='cart-summary'>
-          <h3>TOTAL: {summary} SEK</h3>
+          <h3>Total Amount: {summary} SEK</h3>
           <Link to="/checkout"><button className='cart-checkout'>Checkout</button></Link>
           
         </div>
-        <button onClick={handleDeleteCart}className='deleteCart'>Empty bag</button>
+        <button onClick={handleDeleteCart} className='deleteCart'>Empty bag</button>
       </div>
 
     </>

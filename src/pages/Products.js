@@ -51,7 +51,7 @@ function Products({ addProduct }) {
              <Link to={`/product/${product.id}`}>
              <button className="details_btn"><IoInformationCircleSharp/></button></Link>
             
-            <input type="number" min="1" max="10" placeholder="0" className="inputProductQty"></input>
+            <input type="number" min="1" max="10" placeholder="1" className="inputProductQty"></input>
 
             <button className="checkout_btn" onClick={() => {handleClick(product)}}><MdLocalGroceryStore/></button></div>
 
