@@ -54,12 +54,12 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
     <>
 
       <div className={`cart-openSidebar ${open && 'open'}`}>
-        <div className='cart-header'>
-          <h3>Shopping Bag</h3>
+        <div className='cartHeader'>
+          <h2>Shopping Bag</h2>
           <div className='closeSidebar' onClick={() => setOpen(!open)}><TiDelete /></div>
         </div>
-        <div>{cartItems.length === 0 && <p className='emptyShoppingBag'>Your shopping bag is empty.</p>}</div>
-        <div className="product-cart-container">
+        <div>{cartItems.length === 0 && <p className='emptyShoppingBag'>Your bag is currently empty.</p>}</div>
+        <div className="cartProducts">
           {
             cartItems.map((item) =>
               <CartItem
@@ -78,7 +78,7 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
           <Link to="/checkout"><button className='cart-checkout'>Checkout</button></Link>
           
         </div>
-        <button onClick={handleDeleteCart} className='deleteCart'>Remove all</button>
+        <button onClick={handleDeleteCart}className='deleteCart'>Empty bag</button>
       </div>
 
     </>
