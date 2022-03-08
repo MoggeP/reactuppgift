@@ -1,48 +1,54 @@
-import React from 'react';
-import productsData from '../Data';
-import {Link} from 'react-router-dom'
-import { MdLocalGroceryStore} from 'react-icons/md'
-import { MdFavorite } from 'react-icons/md'
-import { IoInformationCircleSharp } from 'react-icons/io5'
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import '../style/products.css'
 
 
+function Products({ addProduct }) {
+  const [products, setproducts] = useState([]);
 
-function Products({handleAddToCart}) {
-  
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://codexplained.se/electronics.php');
+      const data = await response.json();
+
+      setproducts(data);
+    } catch (error) {
+
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
   const handleClick = (product) => {
-    handleAddToCart(product.id)
-}
+    addProduct(product)
+    console.log(product);
+  }
+
+  
+
 
   return (
-    <div className='products-container'>
-      {productsData.productsData.map((product) => (
-    <div key={product.id} className='productCard'>
-        <img className='productcardImg' src={product.url} alt={product.title}/>
-          
+    <div className="products-container">
+      {
+        products.map(product => (
+          <section key={product.id}className="section">
+            <Link to={`/product/${product.id}`}> <img className="img" src={product.url} alt={product.title}></img></Link>
+            <h2>{product.title}</h2>
+            <h4>{product.price} SEK</h4>
+            <input type="number" min="1" max="10" placeholder="quantity"></input>
+            <button onClick={() => {handleClick(product)}}>Add to Cart</button>
 
-        <div className='productcardDetails'>
-          <Link to={product.id}> 
-            <h3 className='productcardInfo'>{product.title}</h3></Link>
-            <p className='productcardPrice'>{product.price} kr</p>
-        <Link to="../Heart" className='like_btn' style={{color:'#a52a2a'}}>{<MdFavorite/>}</Link>
-            <p className='productcardDesc'>{product.description}</p>
-        </div>
-        <div className='btns'>
-             <button className='details_btn'>
-               <Link to="../Product"> {<IoInformationCircleSharp/>}</Link>
-               </button>
-               <input type="number" min="0" max="10" className='inputProductQty'></input>
-             <button className='checkout_btn'>
-               <Link to onClick={() => {handleClick(productsData)}}>{<MdLocalGroceryStore/>}</Link></button>
-               
-        </div>
-      </div>
-      )
-      )
-    }
+
+          </section>
+        )
+
+        )
+      }
     </div>
-    
   )
 }
 
-export default Products;
+export default Products
