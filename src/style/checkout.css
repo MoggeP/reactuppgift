@@ -1,0 +1,48 @@
+.checkoutBody{
+    margin-top: 9rem;
+    border: 1px black;
+    height: 20rem;
+}
+
+.checkout-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#chekout-form{
+    padding: 1rem;
+    width: auto;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.wrapper > * {
+    width: 100%;
+    height: 100%;
+}
+
+.checkout-btn{
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chekout-bild{
+    width: 423px;
+    margin-top: 150px;
+    padding: 150px;
+    height: auto; 
+}
+
+.chekout-tr{
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+}

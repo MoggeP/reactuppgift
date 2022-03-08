@@ -6,10 +6,10 @@ import Products from './pages/Products'
 import Cart from './components/Cart'
 import Product from './pages/Product';
 import Footer from './components/Footer';
+import Checkout from './pages/Checkout'
 
 //import Product from './pages/Product'
 //import Data from './Data'
-//import Checkout from './pages/Checkout'
 // import Admin from './pages/Admin'
 
 
@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 
 
 function App() {
+
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState(undefined);
   const [cartItems, setCartItems] = useState([]);
@@ -69,17 +70,15 @@ function App() {
         
     <Routes>
 
+        <Route path="/Products" element={<Products handleProductDetails={handleProductDetails} products={products} />}></Route>
        
-     
-
-        <Route path="/products" element={<Products handleProductDetails={handleProductDetails} products={products} />}></Route>
-
-          <Route path="/products/:id" element={<Products handleAddToCart={handleAddToCart} product={product} />}></Route>
+          <Route path="/Product/:id" element={<Products handleAddToCart={handleAddToCart} products={products} />}></Route>
 
           <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleDeleteFromCart={handleDeleteFromCart} />}></Route>
           
-        
+          <Route path="/checkout" element={<Checkout products = {products} handleAddToCart={handleAddToCart} />}></Route>
         </Routes>
+        <Product />
         <Footer />
       </div>
     </BrowserRouter>

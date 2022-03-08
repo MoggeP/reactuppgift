@@ -4,11 +4,8 @@
     margin-top: 160px;
 }
 
-.product-add{
-   text-align: center;
-}
-
 .desc-add{
     width: 200px;
     margin: 0 auto;
+    border: 2px;
 }

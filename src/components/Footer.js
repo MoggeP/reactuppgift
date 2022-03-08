@@ -14,9 +14,7 @@ function Footer() {
         <h4>Contact</h4>
         
           <div className='social'>
-          <a href='https://sv-se.facebook.com/'>facebook</a>
-          <br></br>
-          <a href='https://www.instagram.com/'>insta</a>
+          
 
           </div>
       
