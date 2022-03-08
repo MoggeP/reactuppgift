@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header'
-import Products from './pages/Products'
-import Cart from './components/Cart'
+import Header from './components/Header';
+import Products from './pages/Products';
+import Cart from './components/Cart';
 import Product from './pages/Product';
 import Footer from './components/Footer';
-import Checkout from './pages/Checkout'
-
-//import Product from './pages/Product'
+import Checkout from './pages/Checkout';
 //import Data from './Data'
 // import Admin from './pages/Admin'
 
@@ -70,15 +68,15 @@ function App() {
         
     <Routes>
 
+        <Route path="/Product" element={<Product handleProductDetails={handleProductDetails} product={product} />}></Route>
         <Route path="/Products" element={<Products handleProductDetails={handleProductDetails} products={products} />}></Route>
        
-          <Route path="/Product/:id" element={<Products handleAddToCart={handleAddToCart} products={products} />}></Route>
+          <Route path="/Product/:id" element={<Product handleAddToCart={handleAddToCart} />} />
 
           <Route path="/Cart" element={<Cart cartItems={cartItems} handleAddToCart={handleAddToCart} handleDecreaseQty={handleDecreaseQty} handleDeleteFromCart={handleDeleteFromCart} />}></Route>
           
           <Route path="/checkout" element={<Checkout products = {products} handleAddToCart={handleAddToCart} />}></Route>
         </Routes>
-        <Product />
         <Footer />
       </div>
     </BrowserRouter>
