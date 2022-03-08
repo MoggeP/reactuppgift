@@ -1,10 +1,42 @@
 import React from "react"
 import '../style/cart.css'
 import { FaWindowClose } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
-import CartItem from "./CartItem.js";
 
 
+
+const CartItem = ({item, deleteItem}) => {
+
+    const handleDeleteAllFromCart = () => {
+    
+        deleteItem(item.id);
+        console.log(handleDeleteAllFromCart);
+    
+      } 
+
+     
+
+  return (
+    <div>
+        
+          <section className="cart-section" key={item.id}>
+            <div className='cart-body'>
+              <img className="cart-img" src={item.url} alt={item.title}></img>
+
+              <div className='cart-items'>
+                <h3>{item.title}</h3>
+                <h4>{item.price} SEK</h4>
+                <button className='plusBtn'>+</button>
+                <button className='minusBtn'>-</button>
+              </div>
+               <button onClick={handleDeleteAllFromCart} className='cart-trash'><FaTrash /></button>  
+            </div>
+          </section>
+        
+    </div>
+  )
+}
 
 
 function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
@@ -55,7 +87,7 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
 
     </>
   )
-
+  
 }
 
 export default Cart
