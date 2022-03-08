@@ -1,0 +1,83 @@
+.productContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: rgb(249, 249, 249);
+  width: 260px;
+  height: fit-content;
+  padding: 20px;
+  text-align: left;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px rgb(181, 181, 181);
+}
+
+.productcardPrice {
+  font-weight: 500;
+}
+
+.productcardDesc {
+  font-size: 11px;
+  padding-bottom: 20px;
+}
+.productCard a {
+  text-decoration: none;
+  color: #303030;
+}
+
+.productCard a:hover {
+  text-decoration: none;
+  color: #828282;
+}
+
+.productPic {
+  width: 260px;
+}
+
+.like_btn {
+  font-size: 22px;
+  width: fit-content;
+}
+
+.inputProductQty {
+  width: 30px;
+  height: 25px;
+  font-size: 1rem;
+  border: #d6d6d6 solid 0.02rem;
+  border-radius: 2px;
+  background-color: rgb(249, 249, 249);
+  padding-left: 7px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+}
+
+.checkout_btn,
+.heart_btn {
+  font-size: 1.7rem;
+  font-weight: 550;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0px 0px 0px 10px;
+}
+
+.details_btn {
+  font-size: 1.7rem;
+  font-weight: 550;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding-right: 80px;
+}

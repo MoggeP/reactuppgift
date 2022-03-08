@@ -1,37 +1,93 @@
-import React from 'react'
+import React from "react"
+import '../style/cart.css'
+import { FaWindowClose } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 
 
-function Cart(handleDeleteItems, product) {
+const CartItem = ({item, deleteItem}) => {
+
+    const handleDeleteAllFromCart = () => {
+    
+        deleteItem(item.id);
+        console.log(handleDeleteAllFromCart);
+    
+      } 
+
+     
 
   return (
-    <div className='cart'>
-    
-    
-    <div className='cart_container'>
-      <h2>Shopping bag</h2>
-      {}
-         <div className='info'>
-           <div className='img_cart'>
-            <div>image</div>
-           </div>
-           <p>product.title</p>
+    <div>
+        
+          <section className="cart-section" key={item.id}>
+            <div className='cart-body'>
+              <img className="cart-img" src={item.url} alt={item.title}></img>
 
-           <div className='buyBtn_container'>
-             <input type="number" min="0" max="10" placeholder='0'></input>
-             
-             <button>Buy now</button>
-             <p>Qty: st</p>
-             <p>Price: kr</p>
-
-
-             <button>Checkout</button>
+              <div className='cart-items'>
+                <h3>{item.title}</h3>
+                <h4>{item.price} SEK</h4>
+                <button className='plusBtn'>+</button>
+                <button className='minusBtn'>-</button>
+              </div>
+               <button onClick={handleDeleteAllFromCart} className='cart-trash'><FaTrash /></button>  
             </div>
-            <button onClick={()=> handleDeleteItems(product)}>x</button>
-          </div>
-        </div>
+          </section>
+        
     </div>
-  )}
+  )
+}
 
 
-export default Cart;
+function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
+
+  const deleteOne = (id) => {
+    let inCart = cartItems.filter(item => item.id !== id)
+
+    setCartItems(inCart)
+
+  }
+
+   
+  const handleDeleteCart = () => {
+    deleteCart()
+   }
+
+
+  return (
+    <>
+
+      <div className={`openCartContainer ${open && 'open'}`}>
+        <div className='cart-header'>
+          <h2>Shopping Bag</h2>
+          <div className='closeBtn' onClick={() => setOpen(!open)}><FaWindowClose /></div>
+        </div>
+        <div>{cartItems.length === 0 && <h4 className='emptyShoppingBag'>Your shopping bag is empty</h4>}</div>
+        <div className="product-cart-container">
+          {
+            cartItems.map((item) =>
+              <CartItem
+                key={item.id}
+                cartItems={cartItems}
+                item={item}
+                deleteOne={deleteOne}
+
+              />
+            )
+          }
+        </div>
+
+        <div className='cart-footer'>
+          <h3>TOTAL: {summary} SEK</h3>
+          <Link to="/checkout"><button className='cart-checkout'>Checkout</button></Link>
+          
+        </div>
+        <button onClick={handleDeleteCart} className='cart-delete'>Remove all</button>
+      </div>
+
+    </>
+  )
+  
+}
+
+export default Cart
