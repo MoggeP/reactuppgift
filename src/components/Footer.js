@@ -16,11 +16,11 @@ function Footer() {
         <h4>Follow us</h4>
           <div className='social'>
             <a target="_blank"
-              href='https://sv-se.facebook.com/' 
+              href='https://www.facebook.com/tom.n.eriksson' 
               onclick="this.href = this.href.replace('[sub]',window.location)"><FaFacebook/>
             </a>
             <a target="_blank"
-              href='https://www.instagram.com/' 
+              href='https://www.instagram.com/nethster/' 
               onclick="this.href = this.href.replace('[sub]',window.location)" className='footer-icon'><FaInstagram/>
             </a>
           </div>

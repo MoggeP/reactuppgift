@@ -11,11 +11,9 @@ function Product({ addProduct }) {
     try {
       const response = await fetch('https://codexplained.se/electronics.php?id=' + params.id);
       const data = await response.json();
-      console.log(data)
 
       setproduct(data);
     } catch(error) {
-      console.log(error);
     }
   }
 
@@ -34,9 +32,9 @@ function Product({ addProduct }) {
     <img className='img-add' alt='prodImage' src={product.url}></img>
     <div>
     <p className='desc-add'>{product.description}</p>
-    <h2 className='price-add'>{product.price}Kr</h2>
+    <h2 className='price-add'>{product.price} SEK</h2>
     <h3 className='storage-add'>Storage: {product.storage}</h3>
-    <input type="number" min="1" max="10" placeholder="0" className="inputProductQty"></input>
+    <input type="number" min="1" max="10" placeholder="1" className="inputProductQty"></input>
     <button className="checkout_btn" onClick={() => {handleClick(product)}}><MdLocalGroceryStore/></button>
     </div>
     </div>

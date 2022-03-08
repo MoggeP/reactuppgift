@@ -41,7 +41,7 @@ function Products({ addProduct }) {
             <Link to={`/product/${product.id}`}>
               <img className="productPic" src={product.url} alt={product.title}></img>
               <h3 className='productcardInfo'>{product.title}</h3></Link>
-              <p className='productcardPrice'>{product.price} kr</p>
+              <p className='productcardPrice'>{product.price} SEK</p>
                 
               <Link to="../Heart" className='like_btn' style={{color:'#a52a2a'}}>{<MdFavorite/>}</Link>
             <p className='productcardDesc'>{product.description}</p>
