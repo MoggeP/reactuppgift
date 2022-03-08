@@ -1,4 +1,3 @@
-
 .productContainer {
   display: flex;
   flex-wrap: wrap;
@@ -20,8 +19,13 @@
   box-shadow: 0px 0px 5px rgb(181, 181, 181);
 }
 
+.productcardPrice {
+  font-weight: 500;
+}
+
 .productcardDesc {
   font-size: 11px;
+  padding-bottom: 20px;
 }
 .productCard a {
   text-decoration: none;
@@ -37,53 +41,43 @@
   width: 260px;
 }
 
-.productcardPrice {
-  font-weight: 500;
-}
-
 .like_btn {
   font-size: 22px;
   width: fit-content;
 }
 
 .inputProductQty {
-  width: 50px;
-  padding: 2px;
-  font-size: 1.1rem;
-  border: solid 0.05rem;
-  border-radius: 3px;
-  background-color: #f4f4f4;
+  width: 30px;
+  height: 25px;
+  font-size: 1rem;
+  border: #d6d6d6 solid 0.02rem;
+  border-radius: 2px;
+  background-color: rgb(249, 249, 249);
+  padding-left: 7px;
 }
 
 .btns {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
 }
 
 .checkout_btn,
-.details_btn,
 .heart_btn {
-  margin: 4px;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 550;
-  padding: 10px;
-  border: none;
   background-color: transparent;
-}
-
-.checkout_btn a,
-.details_btn a,
-.heart_btn a,
-.buy_btn a {
-  text-decoration: none;
-  color: #303030;
   cursor: pointer;
+  border: none;
+  padding: 0px 0px 0px 10px;
 }
 
-.details_btn a:hover {
-  color: rgb(52, 48, 133);
+.details_btn {
+  font-size: 1.7rem;
+  font-weight: 550;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding-right: 80px;
 }
-
-.checkout_btn a:hover {
-  color: rgb(30, 87, 58);
-}
-

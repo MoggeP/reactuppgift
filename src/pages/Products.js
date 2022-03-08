@@ -24,8 +24,7 @@ function Products({ addProduct }) {
   useEffect(() => {
     getProduct();
   }, []);
-
-
+  
   const handleClick = (product) => {
     addProduct(product)
     console.log(product);

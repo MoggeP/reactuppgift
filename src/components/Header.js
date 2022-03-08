@@ -14,13 +14,14 @@ function Header({cartItems, setCartItems, countCartItems, summary, deleteCart}) 
   return (
     <div>
         <div className="navbar">
-          <div className="main-navbar">
-            <Link to="/" className='navbar_link'><p>Products</p></Link>
+          <div className='nav-1'><Link to="./" style={{padding: '10px'}}>{<Home/>}</Link></div>
+          <div className="nav-2">
+            <Link to="./" style={{padding: '10px'}}>PRODUCTS</Link>
             </div>
 
             <div className="cart-sidebar"> 
               {countCartItems ? (
-                <button className='countBtn'>{countCartItems}</button>
+                <button className='cart-summary'>{countCartItems}</button>
               ) : 
                 ''
               }

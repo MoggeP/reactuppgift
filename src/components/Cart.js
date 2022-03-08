@@ -57,12 +57,12 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
   return (
     <>
 
-      <div className={`cart-container ${open && 'open'}`}>
+      <div className={`openCartContainer ${open && 'open'}`}>
         <div className='cart-header'>
-          <h2>ORDER SUMMARY</h2>
+          <h2>Shopping Bag</h2>
           <div className='closeBtn' onClick={() => setOpen(!open)}><FaWindowClose /></div>
         </div>
-        <div>{cartItems.length === 0 && <h3 className='empty'>Cart is empty</h3>}</div>
+        <div>{cartItems.length === 0 && <h4 className='emptyShoppingBag'>Your shopping bag is empty</h4>}</div>
         <div className="product-cart-container">
           {
             cartItems.map((item) =>
