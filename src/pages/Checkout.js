@@ -18,7 +18,7 @@ function Checkout({products}) {
         : 
         <div className='product'>
 
-          <h3>You havent placed any products:</h3>
+          <h3>You havent placed any products</h3>
           {products.map(i => (
             <table>
               <tr className='chekout-tr'>
