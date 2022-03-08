@@ -36,14 +36,7 @@ function Header({cartItems, setCartItems, countCartItems, summary, deleteCart}) 
               }
         </div>
             
-            <Cart
-             cartItems={cartItems}
-             setCartItems={setCartItems}
-             open={open}
-             setOpen={setOpen}
-             summary={summary}
-             deleteCart={deleteCart}
-            />
+            <Cart cartItems={cartItems} setCartItems={setCartItems} open={open} setOpen={setOpen} summary={summary} deleteCart={deleteCart}/>
           
 
         </div>
