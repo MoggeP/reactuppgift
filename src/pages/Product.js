@@ -1,6 +1,7 @@
 import '../style/product.css'
 import React, { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
+import { MdLocalGroceryStore} from 'react-icons/md'
 
 function Product({ addProducts }) {
   const [product, setproduct] = useState([]);
@@ -37,7 +38,8 @@ function Product({ addProducts }) {
     <p className='desc-add'>{product.description}</p>
     <h2 className='price-add'>{product.price}Kr</h2>
     <h3 className='storage-add'>Storage: {product.storage}</h3>
-    <button onClick={() => handleClick(product)}>Add to Cart</button>
+    <input type="number" min="1" max="10" placeholder="0" className="inputProductQty"></input>
+    <button className="checkout_btn" onClick={() => {handleClick(product)}}><MdLocalGroceryStore/></button>
     </div>
     </div>
    </section>

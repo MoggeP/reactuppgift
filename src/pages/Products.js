@@ -27,7 +27,6 @@ function Products({ addProduct }) {
   
   const handleClick = (product) => {
     addProduct(product)
-    console.log(product);
   }
 
   

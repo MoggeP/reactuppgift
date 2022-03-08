@@ -1,18 +1,14 @@
 import React from "react"
 import '../style/cart.css'
-import { FaWindowClose } from 'react-icons/fa';
-import { FaTrash } from 'react-icons/fa';
+import { TiDelete } from 'react-icons/ti';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
 import { Link } from "react-router-dom";
 
 
 
 const CartItem = ({item, deleteItem}) => {
-
-    const handleDeleteAllFromCart = () => {
-    
-        deleteItem(item.id);
-        console.log(handleDeleteAllFromCart);
-    
+  const handleDeleteSingleItem = () => {
+      deleteItem(item.id);
       } 
 
      
@@ -20,7 +16,7 @@ const CartItem = ({item, deleteItem}) => {
   return (
     <div>
         
-          <section className="cart-section" key={item.id}>
+          <section className="cart" key={item.id}>
             <div className='cart-body'>
               <img className="cart-img" src={item.url} alt={item.title}></img>
 
@@ -30,7 +26,7 @@ const CartItem = ({item, deleteItem}) => {
                 <button className='plusBtn'>+</button>
                 <button className='minusBtn'>-</button>
               </div>
-               <button onClick={handleDeleteAllFromCart} className='cart-trash'><FaTrash /></button>  
+               <button onClick={handleDeleteSingleItem} className='delete-singleitem'><RiDeleteBin2Fill /></button>  
             </div>
           </section>
         
@@ -57,13 +53,13 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
   return (
     <>
 
-      <div className={`openCartContainer ${open && 'open'}`}>
-        <div className='cart-header'>
+      <div className={`cart-openSidebar ${open && 'open'}`}>
+        <div className='cartHeader'>
           <h2>Shopping Bag</h2>
-          <div className='closeBtn' onClick={() => setOpen(!open)}><FaWindowClose /></div>
+          <div className='closeSidebar' onClick={() => setOpen(!open)}><TiDelete /></div>
         </div>
-        <div>{cartItems.length === 0 && <h4 className='emptyShoppingBag'>Your shopping bag is empty</h4>}</div>
-        <div className="product-cart-container">
+        <div>{cartItems.length === 0 && <p className='emptyShoppingBag'>Your bag is currently empty.</p>}</div>
+        <div className="cartProducts">
           {
             cartItems.map((item) =>
               <CartItem
@@ -77,12 +73,12 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
           }
         </div>
 
-        <div className='cart-footer'>
+        <div className='cart-summary'>
           <h3>TOTAL: {summary} SEK</h3>
           <Link to="/checkout"><button className='cart-checkout'>Checkout</button></Link>
           
         </div>
-        <button onClick={handleDeleteCart} className='cart-delete'>Remove all</button>
+        <button onClick={handleDeleteCart}className='deleteCart'>Empty bag</button>
       </div>
 
     </>
