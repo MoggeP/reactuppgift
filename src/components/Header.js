@@ -19,10 +19,12 @@ function Header({cartItems, setCartItems, countCartItems, summary, deleteCart}) 
 
           <div className="nav-2">
             <Link to="./" style={{padding: '10px'}}>PRODUCTS</Link>
+            <Link to="./Footer" style={{padding: '10px'}}>ABOUT</Link>
             </div>
 
           <div className='nav-3'> 
-          <button className='headerIcon'><MdFace/></button> <button className='headerIcon'><MdFavorite/></button>
+          <button className='headerIconAdmin'><MdFace/></button>
+          <button className='headerIconHeart'><MdFavorite/></button>
           
             <div className="cart-sidebar">
               <button className='shoppingbag' onClick={() => {setOpen(true)}}>< FaShoppingBag/></button>

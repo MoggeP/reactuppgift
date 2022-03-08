@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 
 
 const CartItem = ({item, deleteItem}) => {
+
   const handleDeleteSingleItem = () => {
       deleteItem(item.id);
-      } 
+    } 
 
      
 
@@ -17,17 +18,16 @@ const CartItem = ({item, deleteItem}) => {
     <div>
         
           <section className="cart" key={item.id}>
-            <div className='cart-body'>
-              <img className="cart-img" src={item.url} alt={item.title}></img>
-
-              <div className='cart-items'>
+            
+            <img className="cart-img" src={item.url} alt={item.title}></img>
+              <div className='cartDetails'>
                 <h3>{item.title}</h3>
                 <h4>{item.price} SEK</h4>
                 <button className='plusBtn'>+</button>
                 <button className='minusBtn'>-</button>
-              </div>
                <button onClick={handleDeleteSingleItem} className='delete-singleitem'><RiDeleteBin2Fill /></button>  
-            </div>
+              </div>
+            
           </section>
         
     </div>
@@ -37,11 +37,9 @@ const CartItem = ({item, deleteItem}) => {
 
 function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
 
-  const deleteOne = (id) => {
+  const deleteItem = (id) => {
     let inCart = cartItems.filter(item => item.id !== id)
-
     setCartItems(inCart)
-
   }
 
    
@@ -62,13 +60,7 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
         <div className="cartProducts">
           {
             cartItems.map((item) =>
-              <CartItem
-                key={item.id}
-                cartItems={cartItems}
-                item={item}
-                deleteOne={deleteOne}
-
-              />
+              <CartItem key={item.id} cartItems={cartItems} item={item} deleteItem={deleteItem}/>
             )
           }
         </div>

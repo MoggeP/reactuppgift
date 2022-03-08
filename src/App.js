@@ -17,45 +17,28 @@ function App() {
    const [summary, setSummary] = useState (0);
 
     const addProduct = (newCartItem) => {
-
-    setCartItems([
-      ...cartItems,
-      newCartItem
-
-    ]);
-
+      setCartItems([...cartItems, newCartItem]);
 
     if (summary === 0) {
-      
       setSummary(newCartItem.price)
   } else {
       setSummary(summary + newCartItem.price)
-  }
-  
+    }
   }  
 
   const deleteCart = () => {
     setCartItems([]);
   } 
 
-   
   
   return (
     <div className="App">
       <BrowserRouter>
-        <Header
-           cartItems={cartItems} 
-           countCartItems={cartItems.length}
-           setItems={setCartItems}
-           summary={summary}
-           deleteAll={deleteCart}
-           
-          
-        />
+        <Header cartItems={cartItems} countCartItems={cartItems.length} setItems={setCartItems} summary={summary} deleteCart={deleteCart}/>
 
         <Routes>
           <Route path="/" element={<Products setSum={setSummary} addProduct={addProduct} />}></Route>
-          <Route path="/product/:id" element={<Product addProduct={addProduct} />} />
+          <Route path="/product/:id" element={<Product addProduct={addProduct} />}></Route>
           <Route path="/checkout" element={<Checkout items = {cartItems} addProduct={addProduct} />}></Route>
         </Routes>
         <Footer />

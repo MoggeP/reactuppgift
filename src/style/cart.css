@@ -1,11 +1,15 @@
 .cart {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 15px;
+  padding: 15px;
+  background-color: rgba(95, 95, 95, 0.424);
 }
 
 .cart-img {
   width: 100px;
+  object-fit: cover;
 }
 
 .cart-openSidebar {
@@ -15,14 +19,16 @@
   top: 0;
   right: 0;
   bottom: 0;
-  max-height: 100vh;
+  max-height: 200%;
   transition: 500ms;
   transform: translateX(100%);
   background-color: rgb(75, 71, 71);
-  width: 260px;
-  height:100%;
+  opacity: 95%;
+  width: 280px;
+  height:100vh;
   color: white;
-  padding: 50px;
+  padding: 50px 5px 30px 30px;
+  overflow: scroll;
 }
 
 .cart-openSidebar.open {
@@ -41,24 +47,36 @@
   color: beige;
 }
 
+.cartProducts {
+  color: beige;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 55vh;
+  overflow: scroll;
+  width: 87%;
+  justify-items: flex-start;
+  cursor: pointer;
+}
+
+.plusBtn, .minusBtn, .delete-singleitem {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  color: white;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
 .closeSidebar {
   display: flex;
   position: absolute;
   font-size: 30px;
   margin-top: 5px;
   top: 0;
-  margin-left: -40px;
+  margin-left: -20px;
   color: beige;
   cursor: pointer;
-}
-
-.cartProducts {
-  color: beige;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  height: 45vh;
 }
 
 .cart-summary {
@@ -72,6 +90,10 @@
   height: 40px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.cartDetails {
+  justify-content: space-between;
 }
 .deleteCart {
   border: none;
