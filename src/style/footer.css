@@ -1,16 +1,20 @@
 .footer-container{
-  height: 15rem;
-  margin-top: 150px;
+  height: 13rem;
+  margin-top: 200px;
   box-shadow: 0 0 10px black;
   display: flex;
-  gap: 20rem;
+  gap: 12rem;
   justify-content: center;
   background-color: black;
   color: white;
+  text-align: center;
 }
 
 .social{
+  display: flex;
   gap: 20px;
+  font-size: 50px;
+  color: white;
 }
 
 .about{

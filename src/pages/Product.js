@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import { MdLocalGroceryStore} from 'react-icons/md'
 
-function Product({ addProducts }) {
-  const [product, setproduct] = useState([]);
+function Product({ addProduct }) {
+  const [product, setproduct] = useState({});
   const params = useParams();
 
   const fetchData = async () => {
@@ -24,10 +24,8 @@ function Product({ addProducts }) {
   }, []);
 
   const handleClick = (product) => {
-    addProducts(product)
+    addProduct(product)
   }
-
-
 
   return (
     <section key={product.id}>

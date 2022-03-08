@@ -48,9 +48,7 @@ function App() {
            countCartItems={cartItems.length}
            setItems={setCartItems}
            summary={summary}
-           deleteAll={deleteCart}
-           
-          
+           deleteAll={deleteCart} 
         />
 
         <Routes>
