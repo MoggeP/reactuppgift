@@ -24,7 +24,6 @@ function Checkout({ cartItems, summary }) {
                   <td>{i.price} SEK</td>
                 </div>
               </table>
-
             ))}
           </div>
         }
@@ -36,38 +35,39 @@ function Checkout({ cartItems, summary }) {
 
         <div className='checkout-name checkout-input'>
           <label>First Name:</label>
-          <input type='text' name='firstname' className='checkout-name' id='checkout-form' />
+          <input type='text' name='firstname' className='checkout-form' />
         </div>
 
         <div className='checkout-lastname checkout-input'>
           <label>Last Name:</label>
-          <input type='text' name='lastname' className='checkout-lastname' id='checkout-form' />
+          <input type='text' name='lastname' className='checkout-form' />
         </div>
 
         <div className='checkout-phone checkout-input'>
           <label>Phone:</label>
-          <input type='number' name='phonenumber' className='checkout-phone' id='checkout-form' />
+          <input type='number' name='phonenumber' className='checkout-form' />
         </div>
 
         <div className='checkout-email checkout-input'>
           <label>Email:</label>
-          <input type='text' name='emailaddress' className='checkout-email' id='checkout-form' />
+          <input type='text' name='emailaddress' className='checkout-form' />
         </div>
 
         <div className='checkout-address checkout-input'>
           <label>Address:</label>
-          <input type='text' name='address' className='checkout-address' id='checkout-form' />
+          <input type='text' name='address' className='checkout-form' />
         </div>
 
         <div className='checkout-city checkout-input'>
           <label>City:</label>
-          <input type='text' name='city' className='checkout-city' id='checkout-form' />
+          <input type='text' name='city' className='checkout-form' />
         </div>
 
         <div className='checkout-zipcode checkout-input'>
           <label>Zip Code:</label>
-          <input type='number' name='zipcode' className='checkout-zipcode' id='checkout-form' />
-          <input type="submit" value="Complete" className='checkout-btn'></input>
+          <input type='number' name='zipcode' className='checkout-form' />
+          <h3>TOTAL: {summary} SEK</h3>
+          <input type="submit" value="Send it to me!" className='checkout-btn'></input>
         </div>
       </div>
     </div>
