@@ -55,7 +55,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Products setSum={setSummary} addProduct={addProduct} />}></Route>
-          <Route path="/product/:wie" element={<Product addProduct={addProduct} />} />
+          <Route path="/product/:id" element={<Product addProduct={addProduct} />} />
           <Route path="/checkout" element={<Checkout items = {cartItems} addProduct={addProduct} />}></Route>
         </Routes>
         <Footer />

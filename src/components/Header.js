@@ -14,25 +14,31 @@ function Header({cartItems, setCartItems, countCartItems, summary, deleteCart}) 
   return (
     <div>
         <div className="navbar">
+
           <div className='nav-1'><Link to="./" style={{padding: '10px'}}>{<Home/>}</Link></div>
+
           <div className="nav-2">
             <Link to="./" style={{padding: '10px'}}>PRODUCTS</Link>
             </div>
 
-            <div className="cart-sidebar"> 
+          <div className='nav-3'> 
+          <button className='headerIcon'><MdFace/></button> <button className='headerIcon'><MdFavorite/></button>
+          
+            <div className="cart-sidebar">
+              <button className='shoppingbag' onClick={() => {setOpen(true)}}>< FaShoppingBag/></button>
+              </div>
               {countCartItems ? (
-                <button className='cart-summary'>{countCartItems}</button>
+                <button className='cartNum'>{countCartItems}</button>
               ) : 
                 ''
               }
-              <button onClick={() => {setOpen(true)}}>< FaShoppingBag/></button>
-              </div>
+        </div>
             
             <Cart
              cartItems={cartItems}
              setCartItems={setCartItems}
-             open = {open}
-             setOpen = {setOpen}
+             open={open}
+             setOpen={setOpen}
              summary={summary}
              deleteCart={deleteCart}
             />
