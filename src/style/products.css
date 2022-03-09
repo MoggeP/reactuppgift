@@ -49,13 +49,16 @@
 }
 
 .inputProductQty {
-  width: 30px;
+  width: 40px;
   height: 25px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border: #d6d6d6 solid 0.02rem;
   border-radius: 2px;
   background-color: rgb(249, 249, 249);
   padding-left: 7px;
+}
+.inputProductQty::placeholder {
+  color: rgb(173, 173, 173);
 }
 
 .btns {

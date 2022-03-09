@@ -15,6 +15,7 @@ import Products from './pages/Products';
 function App() {
    const [cartItems, setCartItems] = useState([]);  
    const [summary, setSummary] = useState (0);
+   
 
     const addProduct = (newCartItem) => {
       setCartItems([...cartItems, newCartItem]);

@@ -1,17 +1,17 @@
-import React from "react"
+import React, {useState} from "react"
 import '../style/cart.css'
 import { TiDelete } from 'react-icons/ti';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
 import { Link } from "react-router-dom";
 
-
+const initialState = 0;
 
 const CartItem = ({item, deleteItem}) => {
 
   const handleDeleteSingleItem = () => {
       deleteItem(item.id);
     } 
-
+const [count, setCount] = useState(0);
      
 
   return (
@@ -19,12 +19,16 @@ const CartItem = ({item, deleteItem}) => {
         
           <section className="cart" key={item.id}>
             
-            <img className="cart-img" src={item.url} alt={item.title}></img>
+          <img className="cart-img" src={item.url} alt={item.title}></img>
               <div className='cartDetails'>
                 <h3>{item.title}</h3>
                 <h4>{item.price} SEK</h4>
-                <button className='plusBtn'>+</button>
-                <button className='minusBtn'>-</button>
+                  <button onClick={() => setCount(count + 1)} className='plusBtn'>+</button>
+                  <button onClick={() => setCount(count - 1)} className='minusBtn'>-</button>
+                  <button onClick={ () => setCount(initialState) } className='resetCount'>Reset</button>
+             <p>Quantity: {count}st</p>
+                {/* <button className='plusBtn'>+</button>
+                <button className='minusBtn'>-</button> */}
                <button onClick={handleDeleteSingleItem} className='delete-singleitem'><RiDeleteBin2Fill /></button>  
               </div>
             
