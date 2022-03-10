@@ -28,14 +28,12 @@ const CartItem = ({item, deleteItem}) => {
             
           <img className="cart-img" src={item.url} alt={item.title}></img>
               <div className='cartDetails'>
-                <p className="count">{count} items</p><h3>{item.title}</h3>
-                <h4>{item.price} SEK</h4>
-                  <button onClick={onClickPlus} className='plusBtn'>+</button>
-                  <button onClick={onClickMin} className='minusBtn'>-</button>
+                <p className="count">{count} items</p>
+                <h2>{item.title}</h2>
+                <h3>{item.price} SEK</h3>
+                  <button  onClick={onClickPlus} className='plusBtn'>+</button>
+                  <button  onClick={onClickMin} className='minusBtn'>-</button>
                   <button onClick={ () => setCount(initialState) } className='resetCount'>Reset</button>
-             
-                {/* <button className='plusBtn'>+</button>
-                <button className='minusBtn'>-</button> */}
                <button onClick={handleDeleteSingleItem} className='delete-singleitem'><RiDeleteBin2Fill /></button>  
               </div>
             
