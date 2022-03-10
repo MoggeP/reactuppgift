@@ -71,10 +71,20 @@
 .resetCount {
   border: none;
   background-color: transparent;
-  font-size: 10px;
+  font-size: 13px;
+  font-weight: 600;
   color: white;
   padding-left: 10px;
+  color: rgb(240, 123, 123);
   cursor: pointer;
+  padding-bottom: 10px;
+}
+.resetCount:hover {
+  color: grey;
+}
+.count {
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .closeSidebar {
@@ -110,4 +120,7 @@
   color: rgb(240, 123, 123);
   font-weight: 700;
   cursor: pointer;
+}
+.deleteCart:hover {
+  color: grey;
 }
