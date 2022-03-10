@@ -12,6 +12,13 @@ const CartItem = ({item, deleteItem}) => {
   } 
   const [count, setCount] = useState(0);
   const initialState = 0;
+
+ const onClickPlus = () => {
+    setCount(c => Math.min(c + 1, 10));
+  };
+   const onClickMin = () => {
+    setCount(c => Math.max(c - 1, 0));
+  };
      
 
   return (
@@ -23,8 +30,8 @@ const CartItem = ({item, deleteItem}) => {
               <div className='cartDetails'>
                 <p className="count">{count} items</p><h3>{item.title}</h3>
                 <h4>{item.price} SEK</h4>
-                  <button onClick={() => setCount(count + 1)} className='plusBtn'>+</button>
-                  <button onClick={() => setCount(count - 1)} className='minusBtn'>-</button>
+                  <button onClick={onClickPlus} className='plusBtn'>+</button>
+                  <button onClick={onClickMin} className='minusBtn'>-</button>
                   <button onClick={ () => setCount(initialState) } className='resetCount'>Reset</button>
              
                 {/* <button className='plusBtn'>+</button>
