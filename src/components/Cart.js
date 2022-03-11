@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import '../style/cart.css'
 import { TiDelete } from 'react-icons/ti';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
@@ -14,12 +14,12 @@ const CartItem = ({item, deleteItem}) => {
   const [count, setCount] = useState(0);
   const initialState = 0;
 
-//  const onClickPlus = () => {
-//     setCount(c => Math.min(c + 1, 10));
-//   };
-//    const onClickMin = () => {
-//     setCount(c => Math.max(c - 1, 0));
-//   };
+ const onClickPlus = () => {
+    setCount(c => Math.min(c + 1, 10));
+  };
+   const onClickMin = () => {
+    setCount(c => Math.max(c - 1, 0));
+  };
      
 
   return (
@@ -32,14 +32,11 @@ const CartItem = ({item, deleteItem}) => {
                 <p className="count">{count} items</p>
                 <h2>{item.title}</h2>
                 <h3>{item.price} SEK</h3>
-
-                <button className='plusBtn' onClick ={ () => { setCount(c => Math.min(c + 1, 10));}}>+</button>
-                <button className='minusBtn' onClick ={ () => { setCount(c => Math.max(c - 1, 0));}}>-</button>
-
-                  {/* <button  onClick={onClickPlus} className='plusBtn'>+</button>
-                  <button  onClick={onClickMin} className='minusBtn'>-</button> */}
+                  <button  onClick={onClickPlus} className='plusBtn'>+</button>
+                  <button  onClick={onClickMin} className='minusBtn'>-</button>
                   <button onClick={ () => setCount(initialState) } className='resetCount'>Reset</button>
                <button onClick={handleDeleteSingleItem} className='delete-singleitem'><RiDeleteBin2Fill /></button>  
+
               </div>
             
           </section>
@@ -48,18 +45,33 @@ const CartItem = ({item, deleteItem}) => {
   )
 }
 
+function Cart({ cartItems, setCartItems, open, setOpen, deleteCart }) {
+  const [finalAmount, setFinalAmount] = useState(0);
 
-function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
-
+  
   const deleteItem = (id) => {
     let inCart = cartItems.filter(item => item.id !== id)
     setCartItems(inCart)
   }
-
-   
+  
+  
   const handleDeleteCart = () => {
     deleteCart()
-   }
+  }
+  
+  useEffect(() => {
+
+
+const totalAmount = () => {
+ let totalCartAmount = 0;
+  for (let fullAmount = 0; fullAmount < cartItems.length; fullAmount++) {
+    totalCartAmount += cartItems[fullAmount].price;
+}
+setFinalAmount(totalCartAmount);
+}
+  totalAmount();
+}, [cartItems]);
+
 
 
   return (
@@ -80,12 +92,13 @@ function Cart({ cartItems, setCartItems, open, setOpen, summary, deleteCart }) {
         </div>
 
         <div className='cart-summary'>
-          <h3>Total Amount: {summary} SEK</h3>
+          <h3>Total Amount: {finalAmount} SEK</h3>
           <Link to="/checkout"><button className='cart-checkout'>Checkout</button></Link>
           
         </div>
         <button onClick={handleDeleteCart} className='deleteCart'>Empty bag</button>
       </div>
+    
 
     </>
   )

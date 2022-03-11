@@ -29,7 +29,6 @@ function App() {
 
   const deleteCart = () => {
     setCartItems([]);
-    setSummary(summary === 0);
   } 
 
   
@@ -40,7 +39,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Products setSummary={setSummary} addProduct={addProduct} />}></Route>
+          
           <Route path="/product/:id" element={<Product addProduct={addProduct} />} />
+          
           <Route path="/checkout" element={<Checkout cartItems = {cartItems} addProduct={addProduct} summary={summary} />}></Route>
         </Routes>
         <Footer />
