@@ -34,12 +34,12 @@ function Products({ addProduct }) {
 
   return (
     <div className="productContainer">
-      {
-        productsData.products.map(product => (
+      {productsData.products.map(product => (
           <div key={product.id}className="productCard">
 
             <Link to={`/product/${product.id}`}>
-              <img className="productPic" src={product.url} alt={product.title}></img>
+              <img className="productPic" src={product.url} alt={product.title}></img></Link>
+              <Link to={`/product/${product.id}`}>
               <h3 className='productcardInfo'>{product.title}</h3></Link>
               <p className='productcardPrice'>{product.price} SEK</p>
                 

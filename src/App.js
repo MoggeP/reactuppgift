@@ -36,12 +36,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header cartItems={cartItems} countCartItems={cartItems.length} setCartItems={setCartItems} summary={summary}deleteCart={deleteCart}/>
+        <Header cartItems={cartItems} countCartItems={cartItems.length} setCartItems={setCartItems} summary={summary} deleteCart={deleteCart}/>
 
         <Routes>
           <Route path="/" element={<Products setSummary={setSummary} addProduct={addProduct} />}></Route>
           <Route path="/product/:id" element={<Product addProduct={addProduct} />} />
-          <Route path="/checkout" element={<Checkout cartItems = {cartItems} addProduct={addProduct} />}></Route>
+          <Route path="/checkout" element={<Checkout cartItems = {cartItems} addProduct={addProduct} summary={summary} />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

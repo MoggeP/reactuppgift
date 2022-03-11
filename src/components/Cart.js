@@ -10,15 +10,16 @@ const CartItem = ({item, deleteItem}) => {
   const handleDeleteSingleItem = () => {
     deleteItem(item.id);
   } 
+
   const [count, setCount] = useState(0);
   const initialState = 0;
 
- const onClickPlus = () => {
-    setCount(c => Math.min(c + 1, 10));
-  };
-   const onClickMin = () => {
-    setCount(c => Math.max(c - 1, 0));
-  };
+//  const onClickPlus = () => {
+//     setCount(c => Math.min(c + 1, 10));
+//   };
+//    const onClickMin = () => {
+//     setCount(c => Math.max(c - 1, 0));
+//   };
      
 
   return (
@@ -31,8 +32,12 @@ const CartItem = ({item, deleteItem}) => {
                 <p className="count">{count} items</p>
                 <h2>{item.title}</h2>
                 <h3>{item.price} SEK</h3>
-                  <button  onClick={onClickPlus} className='plusBtn'>+</button>
-                  <button  onClick={onClickMin} className='minusBtn'>-</button>
+
+                <button className='plusBtn' onClick ={ () => { setCount(c => Math.min(c + 1, 10));}}>+</button>
+                <button className='minusBtn' onClick ={ () => { setCount(c => Math.max(c - 1, 0));}}>-</button>
+
+                  {/* <button  onClick={onClickPlus} className='plusBtn'>+</button>
+                  <button  onClick={onClickMin} className='minusBtn'>-</button> */}
                   <button onClick={ () => setCount(initialState) } className='resetCount'>Reset</button>
                <button onClick={handleDeleteSingleItem} className='delete-singleitem'><RiDeleteBin2Fill /></button>  
               </div>
