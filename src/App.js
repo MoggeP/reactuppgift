@@ -29,6 +29,7 @@ function App() {
 
   const deleteCart = () => {
     setCartItems([]);
+    setSummary(summary === 0);
   } 
 
   
